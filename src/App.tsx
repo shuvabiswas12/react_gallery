@@ -44,10 +44,9 @@ function App() {
 
     const Toolbar = () => (
         <div className="toolbar">
-            <div className="form-grp">
-                <input type="checkbox" />
-                <span>3 Files selected</span>
-            </div>
+            <label className="form-grp">
+                <input type="checkbox" />3 Files selected
+            </label>
             <button className="btn">Delete files</button>
         </div>
     );
@@ -74,10 +73,16 @@ function App() {
 
             <div className="container">
                 {Childs()}
-                <div className="childs add-more__photo">
+                <label className="childs add-more__photo" htmlFor="addImage">
                     <img src="images/image-add.svg" alt="add_more_image" />
+                    <input
+                        type="file"
+                        id="addImage"
+                        accept="image/png, image/gif, image/jpeg, image/jpg"
+                        style={{ opacity: 0, display: "none" }}
+                    />
                     <p>Add Images</p>
-                </div>
+                </label>
             </div>
         </div>
     );
