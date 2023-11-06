@@ -6,7 +6,7 @@ interface ObjType {
     selected: Boolean;
 }
 
-const data: Array<ObjType> = [
+const initialState: Array<ObjType> = [
     {
         id: 1,
         image: "image-11.jpeg",
@@ -40,7 +40,7 @@ const data: Array<ObjType> = [
 ];
 
 function App() {
-    const [selectedImg, setSelectImg] = useState("");
+    const [images, setImages] = useState<ObjType[]>(initialState);
 
     const Toolbar = () => (
         <div className="toolbar">
@@ -53,7 +53,7 @@ function App() {
     );
 
     const Childs = () => {
-        return data.map((d: ObjType) => (
+        return images.map((d: ObjType) => (
             <div className="childs" key={d.id}>
                 <label htmlFor={d.image.toString()} className="image-container">
                     <input type="checkbox" className="checkbox" id={d.image.toString()} />
