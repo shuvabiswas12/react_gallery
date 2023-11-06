@@ -77,8 +77,8 @@ input[type="checkbox"] {
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 1fr;
     grid-gap: 20px;
-    grid-auto-columns: minmax(300px, auto);
-    grid-auto-columns: minmax(300px, auto);
+    grid-auto-columns: minmax(300px, 1fr);
+    grid-auto-columns: minmax(300px, 1fr);
     place-self: center;
 }
 
@@ -92,12 +92,17 @@ input[type="checkbox"] {
     width: 100%;
 }
 
+.image-container:active {
+    cursor: grabbing;
+}
+
 .image-container {
     position: relative;
     width: 100%;
     height: 100%;
-    cursor: pointer;
+    cursor: grab;
     display: block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .image-container::before {
@@ -114,6 +119,12 @@ input[type="checkbox"] {
 
 .image-container:hover::before {
     opacity: 1; /* Make the black overlay visible on hover */
+}
+
+.img-container:active > img {
+    transform: scale(0.6) !important;
+    transition: transform 0.1s;
+    opacity: 0.5;
 }
 
 .childs:nth-child(1) {
