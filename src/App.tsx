@@ -129,6 +129,7 @@ function App() {
                     <input
                         type="checkbox"
                         className="checkbox"
+                        checked={selectedImages.includes(d.id) ? true : false}
                         id={d.image.toString()}
                         onClick={() => handleToggleSelection(d.id)}
                     />
